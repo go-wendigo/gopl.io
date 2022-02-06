@@ -4,7 +4,7 @@
 // See page 45.
 
 // (Package doc comment intentionally malformed to demonstrate golint.)
-//!+
+// !+
 package popcount
 
 // pc[i] is the population count of i.
@@ -28,4 +28,11 @@ func PopCount(x uint64) int {
 		pc[byte(x>>(7*8))])
 }
 
-//!-
+func PopCountLoop(x uint64) (res int) {
+	for i := 0; i < 8; i++ {
+		res += int(pc[byte(x>>(0*8))])
+	}
+	return
+}
+
+// !-
